@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: net.sf.jsefa:jsefa:1.1.0.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.jsefa/jsefa/1.1.0.RELEASE/a8ae02a6ae66046d5f6952bb469344df8b74275/jsefa-1.1.0.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.jsefa/jsefa/1.1.0.RELEASE/5f03b19a884f89021dd0cc3d2547955a8a1678e0/jsefa-1.1.0.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
