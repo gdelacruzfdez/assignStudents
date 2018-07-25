@@ -11,3 +11,7 @@ The JavaDoc is available [here](https://gdelacruzfdez.github.io/assignStudents/)
 # Documentation
 
 The documentation can be accessed [here](https://unioviedo-my.sharepoint.com/:b:/g/personal/uo244583_uniovi_es/EZD84l506D5CqNSB0Buxw2UBQhilOZ0soL2HPznKOQRcWw?e=bWdDvW).
+
+# Build Jar File
+
+For building the Jar file, a Gradle task named "fatJar" must be called. It would generate a Jar file with all the needed dependencies.
