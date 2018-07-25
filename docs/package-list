@@ -1,0 +1,12 @@
+uniovi.assign
+uniovi.assign.genetic
+uniovi.assign.genetic.crossover
+uniovi.assign.genetic.encoding
+uniovi.assign.genetic.fitnessfunction
+uniovi.assign.genetic.mutation
+uniovi.assign.genetic.population
+uniovi.assign.genetic.selection
+uniovi.assign.greedy
+uniovi.assign.model
+uniovi.assign.parser
+uniovi.assign.reports
