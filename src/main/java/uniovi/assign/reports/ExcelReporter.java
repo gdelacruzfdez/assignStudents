@@ -89,14 +89,19 @@ public class ExcelReporter {
         Row header = unsolvedAssignmentsSheet.createRow(rowNum++);
         unsolvedAssignmentsSheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 2));
         header.createCell(0).setCellValue("UNSOLVED ASSIGNMENTS");
+        addTableRow(unsolvedAssignmentsSheet, rowNum++, "ID", "FIRST SURNAME", "SECOND SURNAME", "NAME", "SUBJECT");
         for (Assignment unsolvedAssignment : bestIndividual.getUnsolvedAssignments()) {
-            String studentName = unsolvedAssignment.getStudent().getCompleteName();
+            String studentName = unsolvedAssignment.getStudent().getName();
+            String studentFirstSurname = unsolvedAssignment.getStudent().getFirstSurname();
+            String studentSecondSurname = unsolvedAssignment.getStudent().getSecondSurname();
             String subjectName = unsolvedAssignment.getSubjectClass().getSubjectName();
             String studentID = unsolvedAssignment.getStudent().getId();
-            addTableRow(unsolvedAssignmentsSheet, rowNum++, studentID, studentName, subjectName);
+            addTableRow(unsolvedAssignmentsSheet, rowNum++, studentID, studentFirstSurname, studentSecondSurname, studentName, subjectName);
         }
-        unsolvedAssignmentsSheet.autoSizeColumn(0);
-        unsolvedAssignmentsSheet.autoSizeColumn(1);
+        for (int i = 0; i < rowNum; i++) {
+            unsolvedAssignmentsSheet.autoSizeColumn(i);
+        }
+
     }
 
     private void addTableRow(XSSFSheet summarySheet, int rowNum, String... values) {
@@ -129,6 +134,10 @@ public class ExcelReporter {
         Row header = sheet.createRow(rowNum++);
         Cell headerId = header.createCell(colNum++);
         headerId.setCellValue("ID");
+        Cell headerFirstSurname = header.createCell(colNum++);
+        headerFirstSurname.setCellValue("FIRST SURNAME");
+        Cell headerSecondSurname = header.createCell(colNum++);
+        headerSecondSurname.setCellValue("SECOND SURNAME");
         Cell headerName = header.createCell(colNum++);
         headerName.setCellValue("NAME");
         for (String typeOfClass : TYPE_OF_CLASSES) {
@@ -159,8 +168,12 @@ public class ExcelReporter {
             Row row = sheet.createRow(rowNum++);
             Cell id = row.createCell(0);
             id.setCellValue(student.getId());
-            Cell name = row.createCell(1);
-            name.setCellValue(student.getCompleteName());
+            Cell firstSurname = row.createCell(1);
+            firstSurname.setCellValue(student.getFirstSurname());
+            Cell secondSurname = row.createCell(2);
+            secondSurname.setCellValue(student.getSecondSurname());
+            Cell name = row.createCell(3);
+            name.setCellValue(student.getName());
             for (Assignment assignment : student.getAssignments()) {
                 int subjectIndex = subjectOrder.indexOf(assignment.getSubjectClass().getSubject().getSubjectId().replace(".I", ""));
                 int typeOfClassIndex = 0;
@@ -171,7 +184,7 @@ public class ExcelReporter {
                 } else if (assignment.getSubjectClass().getSubjectName().contains(".L")) {
                     typeOfClassIndex = 2;
                 }
-                Cell assignmentCell = row.createCell(subjectIndex + (typeOfClassIndex * subjectOrder.size()) + 2 + typeOfClassIndex + 1);
+                Cell assignmentCell = row.createCell(subjectIndex + (typeOfClassIndex * subjectOrder.size()) + 4 + typeOfClassIndex + 1);
                 if (assignment.getGroup() != null) {
                     String[] parts = assignment.getGroup().getGroupId().split("\\.");
                     assignmentCell.setCellValue(parts[parts.length - 1]);
