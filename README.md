@@ -1,6 +1,7 @@
 # assignStudents
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c0968981f5849faa8183af16b99a3e8)](https://app.codacy.com/app/gdelacruzfdez/assignStudents?utm_source=github.com&utm_medium=referral&utm_content=gdelacruzfdez/assignStudents&utm_campaign=badger)
+[![Build Status](https://travis-ci.org/gdelacruzfdez/assignStudents.svg?branch=master)](https://travis-ci.org/gdelacruzfdez/assignStudents)
 
 Java console application for assigning students to class groups in University of Oviedo School of Computer Science
 
