@@ -6,3 +6,4 @@ jdk:
 
 script:
 - chmod +x ./gradlew
+- ./gradlew check
